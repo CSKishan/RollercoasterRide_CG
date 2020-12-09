@@ -32,6 +32,22 @@ void init()
 
 }
 
+void circle(float radius_x, float radius_y)
+{
+    int i = 0;
+    float angle1 = 0.0;
+
+    glBegin(GL_POLYGON);
+
+    for(i = 0; i < 100; i++)
+    {
+        angle1 = 2 * PI * i / 100;
+        glVertex3f (cos(angle1) * radius_x, sin(angle1) * radius_y, 0);
+    }
+
+    glEnd();
+}
+
 void halfcircle(float radius_x, float radius_y)
 {
     int i = 0;
@@ -199,6 +215,100 @@ void cart(double pos)
     glPopMatrix();
 }
 
+void wheels()
+{
+    float i=0;
+    //fcart wheels
+    glPushMatrix();
+    glTranslated(1,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(3.5,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    //trailing cart wheels
+    glPushMatrix();
+    glTranslated(6 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+}
+
 void button()
 {
     //down
@@ -313,6 +423,7 @@ void rc_gate()
     chain(15.75);
     cart(15);
     chain(19.5);
+    wheels();
 
     //man();
     ticketbox();
