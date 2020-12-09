@@ -309,6 +309,67 @@ void wheels()
     glPopMatrix();
 }
 
+void man()
+{
+    //head
+    glPushMatrix();
+    glTranslated(2,-5,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(1.0,1.0,1.0);
+    circle(2,2);
+    glPopMatrix();
+
+    //torso
+    glPushMatrix();
+    glColor3f(1.0, 1.0, 1.0);
+    glLineWidth(6);
+    glBegin(GL_LINES);
+    glVertex2d(2, -5);
+    glVertex2d(2, -7.5);
+    glEnd();
+    glPopMatrix();
+
+    //left hand
+    glPushMatrix();
+    glColor3f(1.0, 1.0, 1.0);
+    glLineWidth(6);
+    glBegin(GL_LINES);
+    glVertex2d(2, -6);
+    glVertex2d(0.75, -7);
+    glEnd();
+    glPopMatrix();
+
+    //left leg
+    glPushMatrix();
+    glColor3f(1.0, 1.0, 1.0);
+    glLineWidth(6);
+    glBegin(GL_LINES);
+    glVertex2d(2, -7.5);
+    glVertex2d(1.25, -9);
+    glEnd();
+    glPopMatrix();
+
+    //right hand
+    glPushMatrix();
+    glColor3f(1.0, 1.0, 1.0);
+    glLineWidth(6);
+    glBegin(GL_LINES);
+    glVertex2d(2, -6);
+    glVertex2d(3.25, -7);
+    glEnd();
+    glPopMatrix();
+
+    //right leg
+    glPushMatrix();
+    glColor3f(1.0, 1.0, 1.0);
+    glLineWidth(6);
+    glBegin(GL_LINES);
+    glVertex2d(2, -7.5);
+    glVertex2d(2.75, -9);
+    glEnd();
+    glPopMatrix();
+}
+
 void button()
 {
     //down
@@ -425,7 +486,7 @@ void rc_gate()
     chain(19.5);
     wheels();
 
-    //man();
+    man();
     ticketbox();
 
     glutPostRedisplay();
@@ -437,7 +498,6 @@ void mymouse(int button,int state,int x,int y)
 {
 	if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
 	{
-
 	    glLoadIdentity();
 	    glOrtho(-20.0, 20.0, -10.0, 10.0, -15.0, 15.0);
 	    glutDisplayFunc(rc_gate);
