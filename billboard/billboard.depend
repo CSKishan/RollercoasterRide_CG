@@ -1,16 +1,14 @@
 # depslib dependency file v1.0
-1607449790 source:d:\study\rollercoasterride_cg\rc_gate\main.c
+1607675038 source:d:\study\rollercoasterride_cg\billboard\main.cpp
 	<windows.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdlib.h>
 
-1607477885 source:d:\study\rollercoasterride_cg\rc_gate\main.cpp
+976692172 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
 	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
-	<stdlib.h>
-	<math.h>
+	<GL/gl.h>
+	<GL/glu.h>
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h
 	<winresrc.h>
@@ -216,27 +214,9 @@
 1301111156 c:\program files (x86)\codeblocks\mingw\include\oleidl.h
 	<objfwd.h>
 
-976692172 c:\program files (x86)\codeblocks\mingw\include\gl\glut.h
-	<windows.h>
-	<GL/gl.h>
-	<GL/glu.h>
-
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
 	<stddef.h>
 	<GL/gl.h>
-
-1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
-	<_mingw.h>
-	<stddef.h>
-	<stdarg.h>
-	<sys/types.h>
-
-1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
-	<_mingw.h>
-	<stddef.h>
-
-1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
-	<_mingw.h>
 
