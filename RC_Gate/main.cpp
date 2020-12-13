@@ -29,7 +29,6 @@ void init()
     glClearColor(0.0,0.0,0.0,0.0);
     glMatrixMode(GL_PROJECTION);
     glOrtho(0,50,0,50,0,10);
-
 }
 
 void circle(float radius_x, float radius_y)
@@ -47,6 +46,8 @@ void circle(float radius_x, float radius_y)
 
     glEnd();
 }
+
+void mymouse(int button,int state,int x,int y);
 
 void halfcircle(float radius_x, float radius_y)
 {
@@ -372,33 +373,15 @@ void man()
 
 void button()
 {
-    //down
-    glColor3f(1.0,0.0,0.0);
-    glLineWidth(3);
-    glBegin(GL_LINES);
-    glVertex2i(21.5,6);
-    glVertex2i(27,6);
-
-    //right
-    glColor3f(1.0,0.0,0.0);
-    glLineWidth(3);
-    glBegin(GL_LINES);
-    glVertex2i(27,6);
-    glVertex2i(27,8);
-
-    //top
-    glColor3f(1.0,0.0,0.0);
-    glLineWidth(3);
-    glBegin(GL_LINES);
-    glVertex2i(21.5,8);
-    glVertex2i(27,8);
-
-    //left
-    glColor3f(1.0,0.0,0.0);
-    glLineWidth(3);
-    glBegin(GL_LINES);
-    glVertex2i(21.5,8);
-    glVertex2i(21.5,6);
+    glColor3f(0, 0, 0);
+    glBegin(GL_QUADS);
+    //glColor3f(0, 0, 1);
+    glVertex2f(21.5,8);
+    glVertex2f(21.5,6);
+    //glColor3f(1, 0, 0);
+    glVertex2f(27,6);
+    glVertex2f(27,8);
+    glEnd();
 }
 
 void Display_on_screen(char *string)
@@ -415,7 +398,21 @@ void display()
 
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glColor3f(0.0,1.0,0.0);
+
+    /////////BACKGROUND/////////
+    glBegin(GL_QUADS);
+    //red color
+    glColor3f(1.0,0.0,0.0);
+    glVertex2f(0.0, 50.0);
+    glVertex2f(0.0,0.0);
+    //blue color
+    glColor3f(0.0,0.0,1.0);
+    glVertex2f(50.0,0.0);
+    glVertex2f(50.0, 50.0);
+    glEnd();
+
+
+    glColor3f(1.0,1.0,1.0);
     glRasterPos2i(15,40);
     glRasterPos3f(19.5,40,0);
     Display_on_screen("ROLLERCOASTER RIDE");
@@ -440,25 +437,34 @@ void display()
     glRasterPos3f(34,14,0);
     Display_on_screen("4NM17CS090");
 
-    glRasterPos3f(22.7,6.5,0);
-    Display_on_screen("NEXT");
+
     //button
     button();
 
+    glColor3f(1.0,1.0,1.0);
+    glRasterPos3f(23,6.5,0);
+    Display_on_screen("NEXT");
+
     // top line
-    glColor3f(1.0,0.0,0.0);
-    glLineWidth(5);
+    glColor3f(0.0,0.0,0.0);
+    glLineWidth(5.5);
     glBegin(GL_LINES);
-    glVertex2i(17.5,42.7);
-    glVertex2i(31.5,42.7);
+    //glColor3f(0.0,0.0,1.0);
+    glVertex2i(20.5,42.7);
+    //glColor3f(1.0,0.0,0.0);
+    glVertex2i(34.5,42.7);
+    glEnd();
 
     // bottom line
-    glColor3f(1.0,0.0,0.0);
+    //glColor3f(1.0,0.0,0.0);
     glLineWidth(5);
     glBegin(GL_LINES);
-    glVertex2i(17.5,39);
-    glVertex2i(31.5,39);
+    //glColor3f(0.0,0.0,1.0);
+    glVertex2i(14.5,39);
+    //glColor3f(1.0,0.0,0.0);
+    glVertex2i(28.5,39);
 
+    glutMouseFunc(mymouse);
     glEnd();
     glFlush();
 
@@ -467,7 +473,7 @@ void display()
 void rc_gate()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-
+    glutSetWindowTitle("The gate");
     //back
     sky();
     hillSide();
@@ -513,7 +519,7 @@ int main(int argc, char **argv)
     glutInitWindowPosition(1,1);
     glutInitWindowSize(1400, 950);
     glutCreateWindow("CG PROJECT");
-    glutMouseFunc(mymouse);
+    //glutMouseFunc(mymouse);
     init();
     glutDisplayFunc(display);
     glutMainLoop();

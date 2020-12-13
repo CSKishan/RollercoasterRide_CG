@@ -21,6 +21,7 @@
 
 #include <stdlib.h>
 
+
 static int slices = 16;
 static int stacks = 16;
 
@@ -87,6 +88,7 @@ static void display(void)
         glRotated(60,1,0,0);
         glRotated(a,0,0,1);
         glutWireTorus(0.2,0.8,slices,stacks);
+
     glPopMatrix();
 
     glutSwapBuffers();
