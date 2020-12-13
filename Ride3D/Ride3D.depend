@@ -1,15 +1,9 @@
 # depslib dependency file v1.0
-1607449790 source:d:\study\rollercoasterride_cg\rc_gate\main.c
+1607881768 source:d:\study\rollercoasterride_cg\ride3d\main.cpp
 	<windows.h>
-	<GLUT/glut.h>
-	<GL/glut.h>
 	<stdlib.h>
-
-1607859861 source:d:\study\rollercoasterride_cg\rc_gate\main.cpp
-	<windows.h>
-	<GLUT/glut.h>
 	<GL/glut.h>
-	<stdlib.h>
+	<stdio.h>
 	<math.h>
 
 1301111162 c:\program files (x86)\codeblocks\mingw\include\windows.h

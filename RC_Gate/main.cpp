@@ -546,7 +546,7 @@ void timer(int)
         break;
 
     case -1:
-        if(x_pos<10)
+        if(x_pos<-0.5)
             x_pos += 0.15;
         else
             state = 1;
