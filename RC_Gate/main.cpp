@@ -23,6 +23,10 @@
 #include <stdlib.h>
 #include <math.h>
 #define PI 3.14
+void timer(int);
+
+float x_pos = 0;
+int state = 1;
 
 void init()
 {
@@ -181,10 +185,10 @@ void fcart()
     glPushMatrix();
     glColor3f(0.86f, 0.078f, 0.235f);
     glBegin(GL_QUADS);
-    glVertex2d(-0.5 + shitf_x,0.5 + shift_y);
-    glVertex2d(0.5 + shitf_x,2 + shift_y);
-    glVertex2d(4.5 + shitf_x,2 + shift_y);
-    glVertex2d(4.5 + shitf_x,0.5 + shift_y);
+    glVertex2d(-0.5 + shitf_x + x_pos,0.5 + shift_y);
+    glVertex2d(0.5 + shitf_x + x_pos,2 + shift_y);
+    glVertex2d(4.5 + shitf_x + x_pos,2 + shift_y);
+    glVertex2d(4.5 + shitf_x + x_pos,0.5 + shift_y);
     glEnd();
     glPopMatrix();
 }
@@ -195,8 +199,8 @@ void chain(double pos)
     glColor3f(0.0, 0.0, 0.0);
     glLineWidth(5);
     glBegin(GL_LINES);
-    glVertex2d(pos, -1.4);
-    glVertex2d(pos+3.75, -1.4);
+    glVertex2d(pos+ x_pos, -1.4);
+    glVertex2d(pos+3.75+ x_pos, -1.4);
     glEnd();
     glPopMatrix();
 }
@@ -208,10 +212,10 @@ void cart(double pos)
     glPushMatrix();
     glColor3f(0.86f, 0.078f, 0.235f);
     glBegin(GL_QUADS);
-    glVertex2d(1.5 + shitf_x,0.5 + shift_y);
-    glVertex2d(1.5 + shitf_x,2 + shift_y);
-    glVertex2d(4.5 + shitf_x,2 + shift_y);
-    glVertex2d(4.5 + shitf_x,0.5 + shift_y);
+    glVertex2d(1.5 + shitf_x+ x_pos,0.5 + shift_y);
+    glVertex2d(1.5 + shitf_x+ x_pos,2 + shift_y);
+    glVertex2d(4.5 + shitf_x+ x_pos,2 + shift_y);
+    glVertex2d(4.5 + shitf_x+ x_pos,0.5 + shift_y);
     glEnd();
     glPopMatrix();
 }
@@ -221,14 +225,14 @@ void wheels()
     float i=0;
     //fcart wheels
     glPushMatrix();
-    glTranslated(1,-1.75,0);
+    glTranslated(1 + x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(3.5,-1.75,0);
+    glTranslated(3.5+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
@@ -236,29 +240,14 @@ void wheels()
 
     //trailing cart wheels
     glPushMatrix();
-    glTranslated(6 + i,-1.75,0);
+    glTranslated(6 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(7.5 + i,-1.75,0);
-    glScaled(0.3,0.3,0);
-    glColor3f(0,0.0,0);
-    circle(0.88,0.88);
-    glPopMatrix();
-
-    i+=3.75;
-    glPushMatrix();
-    glTranslated(6 + i,-1.75,0);
-    glScaled(0.3,0.3,0);
-    glColor3f(0,0.0,0);
-    circle(0.88,0.88);
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslated(7.5 + i,-1.75,0);
+    glTranslated(7.5 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
@@ -266,29 +255,14 @@ void wheels()
 
     i+=3.75;
     glPushMatrix();
-    glTranslated(6 + i,-1.75,0);
+    glTranslated(6 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(7.5 + i,-1.75,0);
-    glScaled(0.3,0.3,0);
-    glColor3f(0,0.0,0);
-    circle(0.88,0.88);
-    glPopMatrix();
-
-    i+=3.75;
-    glPushMatrix();
-    glTranslated(6 + i,-1.75,0);
-    glScaled(0.3,0.3,0);
-    glColor3f(0,0.0,0);
-    circle(0.88,0.88);
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslated(7.5 + i,-1.75,0);
+    glTranslated(7.5 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
@@ -296,14 +270,44 @@ void wheels()
 
     i+=3.75;
     glPushMatrix();
-    glTranslated(6 + i,-1.75,0);
+    glTranslated(6 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslated(7.5 + i,-1.75,0);
+    glTranslated(7.5 + i+ x_pos,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i+ x_pos,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i+ x_pos,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    i+=3.75;
+    glPushMatrix();
+    glTranslated(6 + i+ x_pos,-1.75,0);
+    glScaled(0.3,0.3,0);
+    glColor3f(0,0.0,0);
+    circle(0.88,0.88);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslated(7.5 + i+ x_pos,-1.75,0);
     glScaled(0.3,0.3,0);
     glColor3f(0,0.0,0);
     circle(0.88,0.88);
@@ -474,6 +478,7 @@ void rc_gate()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glutSetWindowTitle("The gate");
+
     //back
     sky();
     hillSide();
@@ -506,6 +511,7 @@ void mymouse(int button,int state,int x,int y)
 	{
 	    glLoadIdentity();
 	    glOrtho(-20.0, 20.0, -10.0, 10.0, -15.0, 15.0);
+	    glutTimerFunc(0, timer, 0);
 	    glutDisplayFunc(rc_gate);
 	}
 	glutPostRedisplay();
@@ -523,4 +529,27 @@ int main(int argc, char **argv)
     init();
     glutDisplayFunc(display);
     glutMainLoop();
+}
+
+void timer(int)
+{
+    glutPostRedisplay();
+    glutTimerFunc(1000/60, timer, 0);
+
+    switch(state)
+    {
+    case 1:
+        if(x_pos>-20)
+            x_pos -= 0.15;
+        else
+            state = -1;
+        break;
+
+    case -1:
+        if(x_pos<10)
+            x_pos += 0.15;
+        else
+            state = 1;
+        break;
+    }
 }

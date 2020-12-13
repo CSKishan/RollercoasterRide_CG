@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607841208 source:d:\study\rollercoasterride_cg\opengl_basics\main.cpp
+1607857018 source:d:\study\rollercoasterride_cg\opengl_basics\main.cpp
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
