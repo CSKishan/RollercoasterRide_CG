@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include<math.h>
 
+
 void display();
 void draw_wagon();
 void draw_seat();
@@ -49,77 +50,52 @@ void set_material(int m)
 	if(m==0)
 	{
 		float materialGrey[]={0.8,0.8,0.8},materialWhite[]={0.2,0.2,0.2};
-		float materialDarkGreen[]={0.33,0.69,0.0}, materialLightGreen[]={0.48,0.98,0.0};
-		glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialDarkGreen);
-		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialLightGreen);
-		glColor3f(1.0, 0.0, 0.0);
+		//float materialDarkGreen[]={0.33,0.69,0.0}, materialLightGreen[]={0.48,0.98,0.0};
+		glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialGrey);
+		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialWhite);
 	}
 
 	if(m==ROLLER_BODY)
 	{	float materialColours[][3]={{0.6,0.6,0.6},{1,0.6,0.3}, {0.2,0.2,0.2},  {0.75,0.164,0.164},{0.601,0.19,1.0}, {1,1,0}},materialLightBr[]={1,0.0,0.0};
 		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialLightBr);
-		glColor3f(1.0, 0.0, 0.0);
+		glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialColours[1]);
 	}
 }
 
-
-GLuint LoadBMP(const char *fileName)
-{
-	FILE *file;
-	unsigned char header[54],*data;
-	unsigned int dataPos,size,width, height;
-	file = fopen(fileName, "rb");
-	fread(header, 1, 54, file);				//Windows BMP begin with 54 byte header
-	dataPos		= *(int*)&(header[0x0A]);	//dec10, Actual BMP data
-	size		= *(int*)&(header[0x22]);	//dec34, BMP Size
-	width		= *(int*)&(header[0x12]);	//dec18, Image Width
-	height		= *(int*)&(header[0x16]);	//dec22, Image Height
-	if (size == NULL)
-		size = width * height * 3;
-	if (dataPos == NULL)
-		dataPos = 54;
-	data = new unsigned char[size];
-	fread(data, 1, size, file);
-	fclose(file);
-	GLuint texture;
-	glGenTextures(1, &texture);				//Generate (allocate) 1 texture name
-	glBindTexture(GL_TEXTURE_2D, texture);	//Bind the 2D texture
-
-
-
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);	//MAG filter
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);	//MIN filter
-
-	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR_EXT, GL_UNSIGNED_BYTE, data); //target, level, internalFormat, width, height,border, format, type, data
-	return texture;
-}
-
 //Sky not ready BMP file missing
+/*
 void initSky()
 {
 	glShadeModel(GL_SMOOTH);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClearDepth(1.0f);
-	glEnable(GL_DEPTH_TEST);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-	/*
-		skybox[SKY_DOWN] = LoadBMP("BMP11/down.bmp");
+	float materialGrey[]={0.8,0.8,0.8},materialWhite[]={0.2,0.2,0.2};
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialGrey);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialWhite);
+
+	//glEnable(GL_DEPTH_TEST);
+	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
+
+        skybox[SKY_DOWN] = LoadBMP("BMP11/down.bmp");
 		skybox[SKY_FRONT] = LoadBMP("BMP11/front.bmp");
 		skybox[SKY_BACK] = LoadBMP("BMP11/back.bmp");
 		skybox[SKY_RIGHT] = LoadBMP("BMP11/right.bmp");
 		skybox[SKY_LEFT] = LoadBMP("BMP11/left.bmp");
 		skybox[SKY_UP] = LoadBMP("BMP11/up.bmp");
-		*/
-		skybox[SKY_DOWN] = LoadBMP("BMP11/down.bmp");
-		skybox[SKY_FRONT] = LoadBMP("BMP11/front.bmp");
-		skybox[SKY_BACK] = LoadBMP("BMP11/back.bmp");
-		skybox[SKY_RIGHT] = LoadBMP("BMP11/right.bmp");
-		skybox[SKY_LEFT] = LoadBMP("BMP11/left.bmp");
-		skybox[SKY_UP] = LoadBMP("BMP11/up.bmp");
-		grass= LoadBMP("BMP11/grass_1.bmp");
+
+		skybox[SKY_DOWN] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\down.bmp");
+		skybox[SKY_FRONT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\front.bmp");
+		skybox[SKY_BACK] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\back.bmp");
+		skybox[SKY_RIGHT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\right.bmp");
+		skybox[SKY_LEFT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\left.bmp");
+		skybox[SKY_UP] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\up.bmp");
+		grass= LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\grass_1.bmp");
+
+
 }
-
+*/
 //Lighting is ready
 void initLights()
 {
@@ -137,8 +113,16 @@ void initLights()
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mShininess);
 }
 
-/*
+
 void Draw_Skybox(float x, float y, float z, float width, float height, float length){
+
+        //float a= 184/255;
+        //float b= 236/255;
+        //float c= 243/255;
+        float materialBlue[]={0,0.8,1}, materialWhite[]={1,1,1};
+		glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialWhite);
+		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialBlue);
+		//glMaterialfv(GL_FRONT_AND_BACK,GL_TEXTURE_COMPONENTS,materialWhite);
 
 	glDisable(GL_DEPTH_TEST);
 	x = x - width  / 2;
@@ -193,21 +177,22 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 1.0f); glVertex3f(x,		  y,		z+length);
 	glEnd();
  	glDisable(GL_TEXTURE_2D);
+
 }
-*/
+
 
 void draw_ground()
 {
-	//glEnable(GL_TEXTURE_2D);
-	//glBindTexture(GL_TEXTURE_2D,grass);
-	//glColor3f(0.0, 1.0, 0.0);
+	float materialDarkGreen[]={0.33,0.69,0.0}, materialLightGreen[]={0.48,0.98,0.0};
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialDarkGreen);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialLightGreen);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(5000,-10,5000);
 	glTexCoord2f(800.0f, 0.0f); glVertex3f(5000,-10,-5000);
 	glTexCoord2f(800.0f, 800.0f); glVertex3f(-5000,-10,-5000);
 	glTexCoord2f(0.0f, 800.0f); glVertex3f(-5000,-10,5000);
 	glEnd();
-	//glDisable(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);
 	glLineWidth(5.0);
 	glTranslatef(0.0, -2, 0.0);
 	draw_bezier();
@@ -248,7 +233,7 @@ glPushMatrix();
 glTranslatef(1.0, 0.0, -1.0);
 glRotatef(90.0, 0.0, 0.0, 1.0);
 glTranslatef(0.0, 0.5, 0.0);
-//draw_cyl(-2.5,0.0,0.0,2.5,0.0,0.0,0.05,6);
+draw_cyl(-2.5,0.0,0.0,2.5,0.0,0.0,0.05,6);
 glTranslatef(0.0,-0.5,0.0);
 glNormal3f(0.0,1.0,0.0);
 glScalef(4.0, 0.1, 1.0);
@@ -331,6 +316,9 @@ void draw_tank()
 {
 	GLdouble cuteqn[]={0.0,-1.0,0.0,0.0};
 	glPushMatrix();
+	float materialGrey[]={0.8,0.8,0.8},materialWhite[]={0.2,0.2,0.2};
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialGrey);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialWhite);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_CLIP_PLANE1);
@@ -345,6 +333,7 @@ void draw_tank()
 	glVertex3f(10,-3,-10);
 	glVertex3f(-10,-3,-10);
 	glVertex3f(-10,-3,10);
+
 	glEnd();
 	glPopMatrix();
 }
@@ -380,7 +369,7 @@ void display(){
 	glLoadIdentity();
 	gluLookAt(viewer[0], viewer[1], viewer[2],camera[0], camera[1], camera[2],0, 1, 0);
 	glRotatef(x_r, 0, 1, 0);
-	//Draw_Skybox(viewer[0]+(0.05*movcord[0]),viewer[1]+(0.05*movcord[1]),viewer[2]+(0.05*movcord[2]),250,250,250);
+	Draw_Skybox(viewer[0]+(0.05*movcord[0]),viewer[1]+(0.05*movcord[1]),viewer[2]+(0.05*movcord[2]),250,250,250);
 
 	glTranslatef(movcord[0],movcord[1],movcord[2]);
 	draw_ground();
@@ -451,8 +440,6 @@ void moveToBezier( double t){
 	            camera[1]=bezier(bez[0+ni][1],bez[1+ni][1],bez[2+ni][1],bez[3+ni][1],t+0.1)-bezier(bez[0+ni][1],bez[1+ni][1],bez[2+ni][1],bez[3+ni][1],t);
 	            camera[2]=bezier(bez[0+ni][2],bez[1+ni][2],bez[2+ni][2],bez[3+ni][2],t+0.1)-bezier(bez[0+ni][2],bez[1+ni][2],bez[2+ni][2],bez[3+ni][2],t);
 
-
-
 			if(gy<movcord[1]+2.5)
 				 movcord[1]=gy-2.5;
 			display();
@@ -489,6 +476,11 @@ void draw_cyl(float x1, float y1, float z1, float x2,float y2, float z2, float r
 {
 GLUquadricObj *quadric=gluNewQuadric();
 gluQuadricNormals(quadric, GLU_SMOOTH);
+
+float materialGrey[]={0.8,0.8,0.8},materialWhite[]={0.2,0.2,0.2};
+    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialGrey);
+    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialWhite);
+
 renderCylinder(x1,y1,z1,x2,y2,z2,radius,subdivisions,quadric);
 gluDeleteQuadric(quadric);
 }
@@ -497,6 +489,7 @@ gluDeleteQuadric(quadric);
 
 void draw_bezier()
 {
+    //TRACK//
 	glPushMatrix();
       GLfloat bx,by,bz,bx1,by1,bz1,bx2,by2,bz2,i=0.0;
 	  int n=0;
@@ -507,7 +500,7 @@ void draw_bezier()
 	   for(n=0; n<bezno-2; n++)
 	   {
 
-        for(i=0.0;i<=1.0;i+=0.015)
+        for(i=0.0;i<=1.0;i+=0.02)
        {	glBegin(GL_LINES);
 			bx1=bezier(bez[0+n][0],bez[1+n][0],bez[2+n][0],bez[3+n][0],i)-1.3*fabs(sin(angle*3.14/180.0));
             by1=bezier(bez[0+n][1],bez[1+n][1],bez[2+n][1],bez[3+n][1],i);
@@ -577,7 +570,8 @@ void  kb(unsigned char key, int x, int y)
 {   //if(key=='+') movcord[1]--;
 	//if(key=='-') movcord[1]++;
 	//if(key=='w') place_camera(camw=(++camw)%2);
-
+    if(key=='q' || key=='Q')
+        exit(0);
 	if(key=='r')
 	{	roll==0?(roll=1):(roll=0);
 		viewer[0]=1.0;
@@ -600,30 +594,18 @@ void passiveMouse(int x, int y)
 	prevx=x;
 }
 
-
 void place_camera(int action)
 {
 
 	if(camw==1)
 		x_r=0;
 	camw=action;
-	/*
-	if(camw==2)
-	{	movcord[0]=-co_x+cos(c_angle*3.14/180.0)*50.0;
-		movcord[1]=-co_y-38;
-		movcord[2]=co_z;
-	}
-	*/
 	if(camw==1)
 	{	moveToBezier(bez_prog);
 		viewer[0]=1.0;
 		viewer[1]=viewer[2]=camera[0]=camera[1]=camera[2]=0.0;
 		x_r=-45;
 	}
-
-
-	//if(camw==0)
-	//	viewer[1]=viewer[2]=camera[0]=camera[1]=camera[2]=0.0;
 }
 
 
@@ -637,31 +619,6 @@ void handle_roller(int action)
 	}
 }
 
-void menu(int action)
-{
-	//if(action==0) {
-	//	background=(background+1)%3;
-	//	initSky();}
-	if(action==1) help==1?help=0:help=1;
-	if(action==2)	exit(0);
-}
-
-void addMenu()
-{
-	int submenu1,submenu2,submenu21, submenu22,submenu3, submenu31, submenu32, submenu4, submenu41;
-	submenu1 = glutCreateMenu(place_camera);
-	glutAddMenuEntry("Free Movement",0);
-	glutAddMenuEntry("On Roller Coaster",1);
-    submenu4 = glutCreateMenu(handle_roller);
-	glutAddMenuEntry("Stop/Start Roller Coaster",0);
-	glutCreateMenu(menu);
-	glutAddSubMenu("Camera Position",submenu1);
-	glutAddSubMenu("Roller Coaster",submenu4);
-	glutAddMenuEntry("Quit",2);
-	glutAttachMenu(GLUT_RIGHT_BUTTON);
-
-}
-
 int main(int argc, char** argv)
 {
 		bezno=(sizeof(bez)/24)-2;
@@ -670,7 +627,7 @@ int main(int argc, char** argv)
 		glutInitWindowSize(1400,950);
 		glutCreateWindow("Rollercoaster Ride");
 		initLights();
-		initSky();
+		//initSky();
   		glutDisplayFunc(display);
 	 	glutReshapeFunc(displayReshape);
 	 	glutKeyboardFunc(kb);
@@ -678,7 +635,7 @@ int main(int argc, char** argv)
 		glutPassiveMotionFunc(passiveMouse);
 		glutIdleFunc(idle);
 		glutSpecialFunc(windowSpecial);
-		addMenu();
+		//addMenu();
 		glutMainLoop();
 		return 0;
 }

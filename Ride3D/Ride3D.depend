@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1607881768 source:d:\study\rollercoasterride_cg\ride3d\main.cpp
+1607958625 source:d:\study\rollercoasterride_cg\ride3d\main.cpp
 	<windows.h>
 	<stdlib.h>
 	<GL/glut.h>
@@ -233,4 +233,136 @@
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
+
+1301111158 c:\program files (x86)\codeblocks\mingw\include\sddl.h
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"SDL_getenv.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_timer.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_joystick.h"
+	"SDL_events.h"
+	"SDL_video.h"
+	"SDL_byteorder.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl_main.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1090385606 c:\program files (x86)\codeblocks\mingw\include\sdl_types.h
+
+1105225981 c:\program files (x86)\codeblocks\mingw\include\begin_code.h
+
+1073234948 c:\program files (x86)\codeblocks\mingw\include\close_code.h
+
+1018535713 c:\program files (x86)\codeblocks\mingw\include\sdl_getenv.h
+	"begin_code.h"
+	"close_code.h"
+
+1100561407 c:\program files (x86)\codeblocks\mingw\include\sdl_error.h
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl_rwops.h
+	<stdio.h>
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1105658696 c:\program files (x86)\codeblocks\mingw\include\sdl_timer.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl_audio.h
+	<stdio.h>
+	"SDL_main.h"
+	"SDL_types.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_byteorder.h"
+	"begin_code.h"
+	"close_code.h"
+
+1100297357 c:\program files (x86)\codeblocks\mingw\include\sdl_byteorder.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl_cdrom.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1090177506 c:\program files (x86)\codeblocks\mingw\include\sdl_joystick.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093028221 c:\program files (x86)\codeblocks\mingw\include\sdl_events.h
+	"SDL_types.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl_active.h
+	"begin_code.h"
+	"close_code.h"
+
+1090191460 c:\program files (x86)\codeblocks\mingw\include\sdl_keyboard.h
+	"SDL_types.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl_keysym.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl_mouse.h
+	"SDL_types.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1104642676 c:\program files (x86)\codeblocks\mingw\include\sdl_video.h
+	<stdio.h>
+	"SDL_types.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl_mutex.h
+	"SDL_main.h"
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1073234947 c:\program files (x86)\codeblocks\mingw\include\sdl_quit.h
+
+1113732990 c:\program files (x86)\codeblocks\mingw\include\sdl_version.h
+	"SDL_types.h"
+	"begin_code.h"
+	"close_code.h"
+
+1093041125 c:\program files (x86)\codeblocks\mingw\include\sdl_opengl.h
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<windows.h>
+	<stddef.h>
 

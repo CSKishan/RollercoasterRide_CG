@@ -28,6 +28,15 @@ void timer(int);
 float x_pos = 0;
 int state = 1;
 
+void Display_on_screen(char *string)
+
+{
+    while(*string)
+    {
+	    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,*string++);
+    }
+}
+
 void init()
 {
     glClearColor(0.0,0.0,0.0,0.0);
@@ -388,14 +397,7 @@ void button()
     glEnd();
 }
 
-void Display_on_screen(char *string)
 
-{
-    while(*string)
-    {
-	    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,*string++);
-    }
-}
 
 void display()
 {
@@ -484,6 +486,8 @@ void rc_gate()
     hillSide();
     field();
 
+
+
     track();
     fcart();
     chain(4.5);
@@ -499,6 +503,9 @@ void rc_gate()
 
     man();
     ticketbox();
+
+    //glRasterPos3f(10,5,0);
+    //Display_on_screen("Kishan");
 
     glutPostRedisplay();
     glFlush();
