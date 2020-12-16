@@ -28,13 +28,7 @@ double bez[][3]={
 	{70,80,70}, {0,50,80}, {-20,30,80},{-45, 25, 60}, {-70,20,50}, {-40,10,30}, {-30,30,10},
 	{-90,30,20}, {-120,130,60}, {-115,160,75}, {-110, 200, 130}, {-100, 160, 200}, {-90,130,250},
 	{-50,150,260}, {-25,150,260}, {-5,140,260}, {25,160,260}, {40,130,230}, {55,110,210},
-    /*
-	{70, 90, 160}, {65, 100,140}, {45, 110, 110}, {25, 120, 90}, {-50, 140, 100}, {-100, 150, 100},
-	{-150, 130, 100},{-170,120,110}, {-175,120, 180 },{-120,90,150}, {-170, 110, 120}, {-190, 80,  140},
-	{-170, 60, 150}, {-160, 50, 160},{-100, 25, 170},{-15, 1.5, 170},{50, 0, 170}, {100, 0, 170},
-	{160, 0, 170},{200, 20, 170}, {260, 50, 170},{290, 50, 150}, {320, 65, 110},{330, 65, 80},
-	{340, 65, 60}, {350, 80, 30}, {350, 130, 0},{350, 100, -60},{330, 70, -100},{310, 100, -170},
-    */
+
 	{280, 80, -210},{250, 60, -250},{230, 30, -280}, {200, 55, -290}, {170, 35, -270}, {150, 22, -250},
 	{100, 20, -230},{80, 35, -200},{60, 30, -170}, {35, 20, -150}, {30,10,-115}, {30,10,-105},
 	{30,10,-105}, {30,10,-105}
@@ -64,40 +58,6 @@ void set_material(int m)
 	}
 }
 
-//Sky not ready BMP file missing
-/*
-void initSky()
-{
-	glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-	glClearDepth(1.0f);
-
-	float materialGrey[]={0.8,0.8,0.8},materialWhite[]={0.2,0.2,0.2};
-    glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialGrey);
-    glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialWhite);
-
-	//glEnable(GL_DEPTH_TEST);
-	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-
-
-        skybox[SKY_DOWN] = LoadBMP("BMP11/down.bmp");
-		skybox[SKY_FRONT] = LoadBMP("BMP11/front.bmp");
-		skybox[SKY_BACK] = LoadBMP("BMP11/back.bmp");
-		skybox[SKY_RIGHT] = LoadBMP("BMP11/right.bmp");
-		skybox[SKY_LEFT] = LoadBMP("BMP11/left.bmp");
-		skybox[SKY_UP] = LoadBMP("BMP11/up.bmp");
-
-		skybox[SKY_DOWN] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\down.bmp");
-		skybox[SKY_FRONT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\front.bmp");
-		skybox[SKY_BACK] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\back.bmp");
-		skybox[SKY_RIGHT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\right.bmp");
-		skybox[SKY_LEFT] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\left.bmp");
-		skybox[SKY_UP] = LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\up.bmp");
-		grass= LoadBMP("D:\\Study\\RollercoasterRide_CG\\Ride3D\\bin\\Debug\\BMP11\\grass_1.bmp");
-
-
-}
-*/
 //Lighting is ready
 void initLights()
 {
@@ -118,20 +78,19 @@ void initLights()
 
 void Draw_Skybox(float x, float y, float z, float width, float height, float length){
 
-        //float a= 184/255;
-        //float b= 236/255;
-        //float c= 243/255;
+
         float materialBlue[]={0,0.8,1}, materialWhite[]={1,1,1};
 		glMaterialfv(GL_FRONT_AND_BACK,GL_DIFFUSE,materialWhite);
 		glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT,materialBlue);
 		//glMaterialfv(GL_FRONT_AND_BACK,GL_TEXTURE_COMPONENTS,materialWhite);
+
 
 	glDisable(GL_DEPTH_TEST);
 	x = x - width  / 2;
 	y = y - height / 2;
 	z = z - length / 2;
 	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_UP]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_UP]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(x+width, y+height, z);
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x+width, y+height, z+length);
@@ -139,7 +98,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 1.0f); glVertex3f(x,		  y+height,	z);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_FRONT]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_FRONT]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(x+width, y,		z);
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x+width, y,		z+length);
@@ -147,7 +106,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 1.0f); glVertex3f(x+width, y+height,	z);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_BACK]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_BACK]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(1.0f, 1.0f); glVertex3f(x,		  y+height,	z);
 	glTexCoord2f(0.0f, 1.0f); glVertex3f(x,		  y+height,	z+length);
@@ -155,7 +114,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x,		  y,		z);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_RIGHT]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_RIGHT]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x+width, y,		z);
 	glTexCoord2f(1.0f, 1.0f); glVertex3f(x+width, y+height, z);
@@ -163,7 +122,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(x,		  y,		z);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_LEFT]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_LEFT]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x,		  y,		z+length);
 	glTexCoord2f(1.0f, 1.0f); glVertex3f(x,		  y+height, z+length);
@@ -171,7 +130,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(x+width, y,		z+length);
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D,skybox[SKY_DOWN]);
+	//glBindTexture(GL_TEXTURE_2D,skybox[SKY_DOWN]);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 0.0f); glVertex3f(x+width, y,		z+length);
 	glTexCoord2f(1.0f, 0.0f); glVertex3f(x+width, y,		z);
@@ -179,6 +138,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glTexCoord2f(0.0f, 1.0f); glVertex3f(x,		  y,		z+length);
 	glEnd();
  	glDisable(GL_TEXTURE_2D);
+
 
 }
 
@@ -302,14 +262,8 @@ void draw_loco()
 	glTranslatef(-2.5,-1.0,0);
 	glTranslatef(2.5,-1.0,0);
 	draw_wheels();
-	/*
-	for(i=0;i<4;i++)
-	{
-	draw_cyl(0,2.1,0,0,-0.1,0,0.1,12);
-	glTranslatef(0.0,0.0,2.0);
-	}
-    */
-	 glPopMatrix();
+
+    glPopMatrix();
 
 
 }
@@ -347,21 +301,6 @@ void getCurveAt(GLdouble *ax,GLdouble *ay,GLdouble *az,int index,GLdouble atpoin
 	if(az) *az=-bezier(bez[0+index][2],bez[1+index][2],bez[2+index][2],bez[3+index][2],atpoint);
 
 }
-
-/*
-void drawText(char *string,float x,float y,float z)
-{
-char *c;
-glRasterPos3f(x, y,z);
-for (c=string; *c != '\0'; c++)
-{
-	if(*c=='\n')
-	glRasterPos3f(x, y-0.05,z);
-	else
-	glutBitmapCharacter(GLUT_BITMAP_9_BY_15, *c);
-}
-}
-*/
 
 void display(){
 
@@ -551,6 +490,7 @@ void draw_bezier()
 
 void windowSpecial(int key,int x,int y)
 {
+
 	if(key==GLUT_KEY_UP)
 	{
 		movcord[0]+=5*cos(-1*x_r*3.14/180.0);
@@ -569,9 +509,9 @@ void windowSpecial(int key,int x,int y)
 
 
 void  kb(unsigned char key, int x, int y)
-{   //if(key=='+') movcord[1]--;
-	//if(key=='-') movcord[1]++;
-	//if(key=='w') place_camera(camw=(++camw)%2);
+{   if(key=='+') movcord[1]--;
+	if(key=='-') movcord[1]++;
+
     if(key=='q' || key=='Q')
         exit(0);
 	if(key=='r')
@@ -629,7 +569,7 @@ int main(int argc, char** argv)
 		glutInitWindowSize(1400,950);
 		glutCreateWindow("Rollercoaster Ride");
 		initLights();
-		//initSky();
+
   		glutDisplayFunc(display);
 	 	glutReshapeFunc(displayReshape);
 	 	glutKeyboardFunc(kb);
@@ -637,7 +577,7 @@ int main(int argc, char** argv)
 		glutPassiveMotionFunc(passiveMouse);
 		glutIdleFunc(idle);
 		glutSpecialFunc(windowSpecial);
-		//addMenu();
+
 		glutMainLoop();
 		return 0;
 }

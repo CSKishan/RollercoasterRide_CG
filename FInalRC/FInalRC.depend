@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1608005202 source:d:\study\rollercoasterride_cg\entrance_gate\main.cpp
+1608007539 source:d:\study\rollercoasterride_cg\finalrc\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<stdio.h>
