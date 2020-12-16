@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1608096181 source:d:\study\rollercoasterride_cg\finalrc\main.cpp
+1608134513 source:d:\study\rollercoasterride_cg\finalrc\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<stdio.h>
