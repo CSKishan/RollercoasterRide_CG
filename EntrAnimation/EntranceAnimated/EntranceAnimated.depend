@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1608188852 source:d:\study\rollercoasterride_cg\finalrc\main.cpp
+1608188185 source:d:\study\rollercoasterride_cg\entranimation\entranceanimated\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<stdio.h>
