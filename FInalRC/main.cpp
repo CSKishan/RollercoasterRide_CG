@@ -25,7 +25,7 @@ const int SKY_FRONT=0,SKY_RIGHT=1,SKY_LEFT=2,SKY_BACK=3,SKY_UP=4,SKY_DOWN=5, ROL
 int ni=0, prevx=0, rcam=1,bezno,camw=1, roll=0, background=0;
 GLint skybox[6], grass,help=0,x_r=0, y_r=0, z_r=0;
 GLfloat viewer[3] = {1.0f, 0.0f, 0.0f},camera[3] = {0.0f, 0.0, 0.0};
-GLdouble curr=0, prev=0,angle=0.0,c_angle=90.0,lx=50.0,ly=50.0,lz=50.0,bez_prog=0.0,roller_speed=0.0008,gy=0,movcord[3]={-150,-10,200};
+GLdouble curr=0, prev=0,angle=0.0,c_angle=90.0,lx=50.0,ly=50.0,lz=50.0,bez_prog=0.0,roller_speed=0.00015,gy=0,movcord[3]={-150,-10,200};
 
 double bez[][3]={
 	{30,10,-200},{30,10,-110},	{30,10,10},	{30,10,50},	{30,70,100}, {60,90,140}, {80,80,100},
@@ -2099,7 +2099,7 @@ int main(int argc,char ** argv)
 void timer(int)
 {
     glutPostRedisplay();
-    glutTimerFunc(30000/60,timer,0);
+    glutTimerFunc(12000/60,timer,0);
     switch(state)
     {
     case 1:
@@ -2123,11 +2123,11 @@ void timer(int)
     }
 }
 
-
+/*
 void timer2(int)
 {
     glutPostRedisplay();
-    glutTimerFunc(1000/60, timer, 0);
+    glutTimerFunc(10000/60, timer, 0);
 
     switch(state)
     {
@@ -2146,5 +2146,5 @@ void timer2(int)
         break;
     }
 }
-
+*/
 
