@@ -21,19 +21,26 @@ The track in a coaster design does not necessarily have to be a complete circuit
 ## Appendix
 
 **Entrance - Initial View**
+
 ![mgate](https://user-images.githubusercontent.com/49337267/114501678-13480f00-9c48-11eb-9bdb-bd30b9eda21c.png)
 
+
 **Entrance - Final View**
+
 ![fgate](https://user-images.githubusercontent.com/49337267/114501837-5d30f500-9c48-11eb-8289-380e047dcd6c.png)
 
+
 **Rollercoaster - 3rd Person View**
+
 ![coaster3](https://user-images.githubusercontent.com/49337267/114501863-6d48d480-9c48-11eb-862c-4b7a5f4d52d9.png)
 
+
 **Rollercoaster - 1st Person View**
+
 ![coaster1](https://user-images.githubusercontent.com/49337267/114501897-7cc81d80-9c48-11eb-9aea-c4e10a835a7c.png)
 
 
-##References
+## References
 
 * https://www.khronos.org/opengl/wiki/Main_Page
 * https://www.youtube.com/playlist?list=PLWzp0Bbyy_3jy34HlDrEWlcG3rF99gkvk
